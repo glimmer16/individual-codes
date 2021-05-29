@@ -1,0 +1,147 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+import java.util.Scanner;
+/**
+ * 用java提供的stack实现
+ */
+public class 迷宫问题 {
+
+    static class Spath { //行走的单位格子
+        private int x;
+        private int y;
+        private int di; //方向 0 1 2 3 表示右 下 左 上
+
+        public Spath(int x, int y, int di) {
+            this.x = x;
+            this.y = y;
+            this.di = di;
+        }
+
+        @Override
+        public boolean equals(Object obj) {
+            if (super.equals(obj)) {
+                return true;
+            }
+
+            if (obj instanceof Spath) {
+
+                if ((((Spath) obj).x == this.x) && (((Spath) obj).y == this.y)) {
+                    return true;
+                } else {
+                    return false;
+                }
+
+            } else {
+                return false;
+            }
+        }
+    }
+    private static Stack<Spath> spathStack = new Stack();//路径栈
+    
+    public static void main(String[] args) {
+    	Scanner scan=new Scanner(System.in);
+    	int m=scan.nextInt();
+    	int n=scan.nextInt();
+        int mg[][] = new int[m][n];
+        for(int i=0;i<m;i++)
+        {
+        	for(int j=0;j<n;j++)
+        	{
+        		mg[i][j]=scan.nextInt();
+        	}
+        }
+        int a=scan.nextInt();
+        int b=scan.nextInt();
+        int c=scan.nextInt();
+        int d=scan.nextInt();
+        Spath spath = new Spath(a,b, 0); //初始坐标为入口 （0，1）方向为向右
+        do {
+            if (isPass(spath,mg)) { //判断该坐标能否通行
+
+                //判断该坐标是否是终点
+                if (isEnd(spath,c,d)) {
+                    spathStack.push(spath);
+                    System.out.println("Yes");
+                    return;
+                }
+                //判断该坐标是否已经来过
+                if (isRecord(spath)) {
+                    //来过 则放弃栈中最新的坐标 后退一格，换个方向重试
+                    spathStack.pop();
+                    spath = spathStack.peek();
+                    spath = next(spath, false,c,d);//继续下一步 换个方向
+                } else {
+                    //没有来过 压入栈中 记录下来
+                    spathStack.push(spath);
+                    spath = next(spath, true,c,d); //继续下一步 沿原来方向
+                }
+
+            } else {
+                spath = spathStack.peek(); //后退一步
+                spath = next(spath, false,c,d);//换个方向 继续下一步
+            }
+
+        } while (!spathStack.empty());
+    }
+    private static Spath next(Spath spath, boolean status,int m,int n) {
+        if (status) {
+            //继续沿着原来方向
+            return SpathNext(spath,m,n);
+
+        } else {
+            //换方向
+            spath.di++;
+            return SpathNext(spath,m,n);
+        }
+    }
+
+    private static Spath SpathNext(Spath spath,int m,int n) {
+        Spath spathNew = new Spath(spath.x, spath.y, 0);//生成新的路径节点 新的节点方向需要重置
+        //方向 0 1 2 3 表示右 下 左 上
+        if (spath.di == 0) { //向右走
+            spathNew.y++;
+        }
+
+        if (spath.di == 1) { //向下走
+            spathNew.x++;
+        }
+
+        if (spath.di == 2) {//向左走
+            spathNew.y--;
+        }
+
+        if (spath.di == 3) {//向上走
+            spathNew.x--;
+        }
+
+        if (spathNew.x>=0&&spathNew.x<m&&spathNew.y>=0&&spathNew.y<n){
+            return spathNew;
+        }
+        return null;
+    }
+
+
+    private static Boolean isEnd(Spath spath,int c,int d) {
+        if (spath.x == c && spath.y == d) {
+            return Boolean.TRUE;
+        } else {
+            return Boolean.FALSE;
+        }
+    }
+
+    private static Boolean isRecord(Spath spath) {
+        return spathStack.contains(spath);
+    }
+
+    private static Boolean isPass(Spath spath,int mg[][]) {
+        if (spath==null){
+            return Boolean.FALSE;
+        }
+        if (mg[spath.x][spath.y] == 1) {
+            return Boolean.TRUE;
+        } else {
+            return Boolean.FALSE;
+        }
+    }
+}
