@@ -1,0 +1,17 @@
+﻿生成启动时间为 2020/12/9 20:06:27。
+     1>项目“E:\c语言作业\三原色大战\181870186孙旭轶 181870182宋昕洋 三原色大战（最新版）\三原色大战\三原色大战.vcxproj”在节点 2 上(build 个目标)。
+     1>InitializeBuildStatus:
+         正在创建“Debug\三原色大战.unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+       ClCompile:
+         所有输出均为最新。
+       Link:
+         所有输出均为最新。
+         三原色大战.vcxproj -> E:\c语言作业\三原色大战\181870186孙旭轶 181870182宋昕洋 三原色大战（最新版）\Debug\三原色大战.exe
+       FinalizeBuildStatus:
+         正在删除文件“Debug\三原色大战.unsuccessfulbuild”。
+         正在对“Debug\三原色大战.lastbuildstate”执行 Touch 任务。
+     1>已完成生成项目“E:\c语言作业\三原色大战\181870186孙旭轶 181870182宋昕洋 三原色大战（最新版）\三原色大战\三原色大战.vcxproj”(build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.04
