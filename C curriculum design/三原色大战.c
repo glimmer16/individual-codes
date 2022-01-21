@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include<graphics.h>
-#include<stdlib.h>   //Éú³ÉËæ»úÊıÍ·ÎÄ¼ş
+#include<stdlib.h>   //ç”Ÿæˆéšæœºæ•°å¤´æ–‡ä»¶
 #include <time.h>
 #include<MMSystem.h>
 #define NULL 0
@@ -167,9 +167,9 @@ int random1()
 					srand((unsigned)time(NULL));
 					a=rand()%6+1;
 					settextcolor(BLACK);
-					settextstyle(35,20,_T("Î¢ÈíÑÅºÚ"));
+					settextstyle(35,20,_T("å¾®è½¯é›…é»‘"));
 					setbkcolor(WHITE);
-					outtextxy(100,210,_T("²½Êı:"));
+					outtextxy(100,210,_T("æ­¥æ•°:"));
 					TCHAR f1[5];
 					_stprintf(f1, _T("%d"),a);
 					outtextxy(120,260, f1);	
@@ -196,9 +196,9 @@ int random2()
 				    srand((unsigned)time(NULL));
 					b=rand()%6+1;
 					settextcolor(BLACK);
-					settextstyle(35,20,_T("Î¢ÈíÑÅºÚ"));
+					settextstyle(35,20,_T("å¾®è½¯é›…é»‘"));
 					setbkcolor(WHITE);
-					outtextxy(500,300,_T("²½Êı:"));
+					outtextxy(500,300,_T("æ­¥æ•°:"));
 					TCHAR f2[5];
 					_stprintf(f2, _T("%d"),b);
 					outtextxy(520,350, f2);	
@@ -343,21 +343,21 @@ int Game2(int n)
 void GameWin1()
 {
 	settextcolor(RED);
-	setfont(26,0,_T("¿¬Ìå"));
+	setfont(26,0,_T("æ¥·ä½“"));
 	setfillstyle(BLACK);
 
-	outtextxy(550,245,_T("¹§Ï²Íæ¼ÒÒ»»ñÊ¤!"));
-	outtextxy(550,275,_T("°´ÈÎÒâ¼ü·µ»Ø"));
+	outtextxy(550,245,_T("æ­å–œç©å®¶ä¸€è·èƒœ!"));
+	outtextxy(550,275,_T("æŒ‰ä»»æ„é”®è¿”å›"));
 	getch();
 }
 void GameWin2()
 {
 	settextcolor(RED);
-	setfont(26,0,_T("¿¬Ìå"));
+	setfont(26,0,_T("æ¥·ä½“"));
 	setfillstyle(BLACK);
 
-	outtextxy(550,245,_T("¹§Ï²Íæ¼Ò¶ş»ñÊ¤!"));
-	outtextxy(550,275,_T("°´ÈÎÒâ¼ü·µ»Ø"));
+	outtextxy(550,245,_T("æ­å–œç©å®¶äºŒè·èƒœ!"));
+	outtextxy(550,275,_T("æŒ‰ä»»æ„é”®è¿”å›"));
 	getch();
 }
 void main()
@@ -366,7 +366,7 @@ void main()
 	int k=0,p1=0,p2=0,n=0,temp1,temp2,sum1=0,sum2=0,m1=0,n1=540,m2=660,n2=0,location1,location2,a,b,score1=0,score2=0,pm1[20],pn1[20],pm2[20],pn2[20],i1=0,i2=0,j,ul;
 	IMAGE img[10];
 	loadimage(NULL,"jiemian.jpg");
-	mciSendString(_T("open background.mp3 Alias music"), NULL, 0, NULL); //´ò¿ª±³¾°ÒôÀÖ
+	mciSendString(_T("open background.mp3 Alias music"), NULL, 0, NULL); //æ‰“å¼€èƒŒæ™¯éŸ³ä¹
 	FlushMouseMsgBuffer();
 	MOUSEMSG m;
 	while(true)
@@ -378,21 +378,21 @@ void main()
 			if(m.x>397 && m.x<630 &&m.y>155 && m.y<245&&n==0)
 			{				
 				p1=Game1(p1);
-                outtextxy(500,50,_T("Íæ¼Ò1µÚ¶ş´Îµã»÷ Ñ¡Ôñ½ÇÉ«"));
+                outtextxy(500,50,_T("ç©å®¶1ç¬¬äºŒæ¬¡ç‚¹å‡» é€‰æ‹©è§’è‰²"));
 				n=1;
 				break;
 			}
 			if(m.x>0&&m.x<720&&m.y>0&&m.y<600&&n==1)
 			{
 				p2=Game2(p2);
-				outtextxy(500,50,_T("Íæ¼Ò2µÚ¶ş´Îµã»÷ Ñ¡Ôñ½ÇÉ«"));
+				outtextxy(500,50,_T("ç©å®¶2ç¬¬äºŒæ¬¡ç‚¹å‡» é€‰æ‹©è§’è‰²"));
 				n=2;
 				break;
 			}
 			if(m.x>397 && m.x<630 &&m.y>338 && m.y<428&&n==0)
 			{				
 				p1=Game1(p1);
-                outtextxy(500,50,_T("Íæ¼Ò1µÚ¶ş´Îµã»÷ Ñ¡Ôñ½ÇÉ«"));
+                outtextxy(500,50,_T("ç©å®¶1ç¬¬äºŒæ¬¡ç‚¹å‡» é€‰æ‹©è§’è‰²"));
 				p2=4;
 				n=2;
 				break;
@@ -444,11 +444,11 @@ void main()
 				{
 					p1=4;
 					settextcolor(RED);
-	                setfont(50,0,_T("Î¢ÈíÑÅºÚ"));
+	                setfont(50,0,_T("å¾®è½¯é›…é»‘"));
 	                setfillstyle(BLACK);
 	                bar(200,240,470,320);	
 	                rectangle(200,240,470,320);
-	                outtextxy(270,245,_T("½ø»¯£¡£¡!"));
+	                outtextxy(270,245,_T("è¿›åŒ–ï¼ï¼!"));
 				}
 				pm1[i1]=m1;
 				pn1[i1]=n1;
@@ -464,7 +464,7 @@ void main()
 				a=move(m1,n1,p1);
 				score1=score1+score(temp1,m1,n1,p1);
 					settextcolor(BLACK);
-					settextstyle(35,20,_T("Î¢ÈíÑÅºÚ"));
+					settextstyle(35,20,_T("å¾®è½¯é›…é»‘"));
 					setbkcolor(WHITE);
 				    bar(290,125,350,185);	
 	                rectangle(290,125,350,185);
@@ -553,11 +553,11 @@ void main()
 				{
 					p2=4;
 					settextcolor(RED);
-	                setfont(50,0,_T("Î¢ÈíÑÅºÚ"));
+	                setfont(50,0,_T("å¾®è½¯é›…é»‘"));
 	                setfillstyle(BLACK);
 	                bar(200,240,470,320);	
 	                rectangle(200,240,470,320);
-	                outtextxy(270,245,_T("½ø»¯£¡£¡!"));
+	                outtextxy(270,245,_T("è¿›åŒ–ï¼ï¼!"));
 				}
 				pm2[i2]=m2;
 				pn2[i2]=n2;
@@ -573,7 +573,7 @@ void main()
 				a=move(m2,n2,p2);
 				score2=score2+score(temp2,m2,n2,p2);
 					settextcolor(BLACK);
-					settextstyle(35,20,_T("Î¢ÈíÑÅºÚ"));
+					settextstyle(35,20,_T("å¾®è½¯é›…é»‘"));
 					setbkcolor(WHITE);
 					bar(580,440,640,490);	
 	                rectangle(580,440,640,490);
@@ -640,14 +640,14 @@ void main()
 			else if(m.uMsg==WM_LBUTTONDOWN&&m.x>=630&&m.x<=720&&m.y>=0&&m.y<=50&&k==0) 
 			{
 				mciSendString(_T("play music from 0 repeat"), NULL, 0, NULL);
-				outtextxy(630,50,_T("¿ªÊ¼²¥·Å"));
+				outtextxy(630,50,_T("å¼€å§‹æ’­æ”¾"));
 				k=1;
 				break;
 			}
 	        else if(m.uMsg==WM_LBUTTONDOWN&&m.x>=630&&m.x<=720&&m.y>=0&&m.y<=50&&k==1) 
 	        {
 		         mciSendString(_T("stop music"), NULL, 0, NULL);   
-                 outtextxy(630,50,_T("Í£Ö¹²¥·Å"));
+                 outtextxy(630,50,_T("åœæ­¢æ’­æ”¾"));
 		         k=0;
 				 break;
 	        }
